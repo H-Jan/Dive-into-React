@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <Title />
       <POPOSList />
-      <img src={logo} />
     </div>
   );
 }

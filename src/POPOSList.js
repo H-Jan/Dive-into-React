@@ -1,27 +1,26 @@
 import POPOSSpace from './POPOSSpace';
+import './POPOSList.css';
+import data from './sfpopos-data.json';
 
 function POPOSList() {
+
+  const spaces = data.map(( { title, address, images, hours } ) => {
     return (
-      <div className="POPOSList">
-        <POPOSSpace
-          name="50 California Street"
-          address = "50 California St."
-          image="50-California-st.jpg" />
-        <POPOSSpace 
-          name="100 Pine Avenue"
-          address="100 Pine St."
-          image="100-pine.jpg"/>
-        <POPOSSpace 
-          name="343 Sansome Roof"
-          address="343 Sansome Roof Ave."
-          image="343-sansome-roof-garden.jpg"
-          />
-        <POPOSSpace 
-          name="Citigroup Center"
-          address="Citigroup Drive"
-          image="citigroup-center.jpg"/>
-      </div>
+      <POPOSSpace
+      key={title}
+        name={title}
+        address={address}
+        image={images[0]}
+        hours={hours}
+      />
     )
-  }
-  
+  })
+
+  return (
+    <div className="POPOSList">
+      { spaces }
+    </div>
+  )
+}
+
 export default POPOSList
